@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src=""></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="image/tải xuống.png " width="135px">
+        </div>
+        
+        <div class="menu">
+            <li><a href="sanpham.html">Laptop</a>
+                <ul class="sub-menu">
+                    <li><a href="">Asus</a></li>
+                    <li><a href="">Aurus</a></li>
+                    <li><a href="">Dell</a></li>
+                    <li><a href="">GiGaByte</a></li>
+                    <li><a href="">Acer</a></li>
+                </ul>
+            </li>
+            <li><a href="">Bàn Phím</a>
+                <ul class="sub-menu">
+                    <li><a href="">Phím Cơ</a></li>
+                    <li><a href="">Phím Giả Cơ</a></li>
+                </ul> 
+            </li>
+            <li><a href="">Chuột</a>
+                <ul class="sub-menu">
+                    <li><a href="">Fulhen</a></li>
+                    <li><a href="">Logitech</a></li>
+                </ul></li>
+            <li><a href="">PC</a>
+                <ul class="sub-menu">
+                    <li><a href="">Văn Phòng</a></li>
+                    <li><a href="">Stations</a></li>
+                </ul></li>
+            <li><a href="">Tai Nghe</a>
+                <ul class="sub-menu">
+                    <li><a href="">Dây</a></li>
+                    <li><a href="">Bluetooth</a></li>
+                    <li><a href="">TWL</a></li>
+                </ul>
+            </li>
+            <li><a href="">Màn Hình</a>
+                <ul class="sub-menu">
+                    <li><a href="">SamSung</a></li>
+                    <li><a href="">LG</a></li>
+                    <li><a href="">Dell</a></li>
+                </ul>
+            </li>
+            <li><a href="">Destop</a>
+                <ul class="sub-menu">
+                    <li><a href="">Destop1</a></li>
+                    <li><a href="">Destop2</a></li>
+                    <li><a href="">Destop3</a></li>
+            </li>
+        </div>
+        <div class="other">
+            <li><input placeholder="Tìm Kiếm" type="text" ><i class="fa-solid fa-magnifying-glass"></i></li>
+            <li> <a class="fa fa-paw" href=""></a></li>
+            <li> <a class="fa fa-user" href=""></a></li>
+            <li><a class="fa fa-shopping-bag" href="cart.html" target="page"></a></li>
+        </div>
+    </header>
+    <section id="slider">
+        <div class="aspect-ratio-169">
+            <img src="images/as1.jpg">
+            <img src="images/as2.jpg">
+            <img src="images/as3.jpg">
+            <img src="images/as4.jpg">
+            <img src="images/as5.jpg">
+        </div>
+        <div class="dot-container">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
+    <section class="app-container">
+        <p>Tải ứng dụng MH Stores</p>
+        <div class="app-google">
+            <img src="image/appgame.png" alt="">
+        </div>
+        <p>Nhận Bản tin MH Stores</p>
+        <input type="text"placeholder="Nhập Email của bạn">
+    </section>
+    <div class="footer-top">
+        <li><a href=""><img src="image/dathongbao.png"></a></li>
+         <li><a href=""> </a> Liên hệ</li>
+         <li> <a href=""> </a> Tuyện dụng</li>
+         <li><a href=""> </a> Giới thiệu</li>
+        <li>
+             <a href="" class="fab fa-facebook-f"> </a>
+             <a href="" class="fab fa-twitter"> </a>
+             <a href="" class="fab fa-youtube"> </a>
+        </li>
+    </div>
+    <div class="footer-center">
+        <p>CÔNG TY TNHH THƯƠNG MẠI MH STORESTORE với số đăng ký kinh doanh:9195777650 <br>
+            Địa chỉ đăng ký: Số 123,đường 78, Quận 1, Tphcm ,Việt Nam-077 393 9639 <br>
+            Đặt hàng online:<b> 1800 6785 </b>
+       </p>
+    </div>
+    <div class="footer-bottom">
+    MHStores All rights reserved
+    </div>
+</body>
+<script>
+    const header = document.querySelector("header")
+window.addEventListener("scroll",function(){
+X =  window.pageYoffset
+if(x>0){
+
+    header.classList.add("sticky")
+}
+else{
+
+    header.classList.remove("sticky")
+    }
+})
+const imgPosition = document.querySelectorAll(".aspect-ratio-169 img")
+const imgContainer = document.querySelector('.aspect-ratio-169')
+const dotItem = document.querySelectorAll(".dot")
+let imgNuber = imgPosition.length
+let index=0
+imgPosition.forEach(function(image,index){
+    image.style.left = index*100+"%"
+    dotItem[index].addEventListener("click",function(){
+        slider(index)
+    })
+})
+function imgslide(){
+  index ++;
+  console.log(index)
+  if(index>=imgNuber) {index=0}
+  slider(index)
+}
+function slider(index){
+    imgContainer.style.left= "-" +index*100+"%"
+    const dotActive = document.querySelector('.active')
+    dotActive.classList.remove(".active")
+    dotItem[index].classList.add("active")
+}
+setInterval(imgslide,5000)
+</script>
+</html>
